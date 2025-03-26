@@ -48,11 +48,11 @@ def get_all_users(request):
         for user in users:
             users_list.append({
                 'user_id': user.user_id,
-                'user_name': getattr(user, 'username', ''),
+                'username': user.username,
                 'first_name': getattr(user, 'first_name', ''),
-                'last_name': getattr(user, 'last_name', '')
+                'last_name': getattr(user, 'last_name', '') # Функция getattr() здесь используется как безопасный способ обращения к полям модели, которые могут быть не заполнены или отсутствовать.
             })
 
-        return JsonResponse({
-            'users': users_list
-        })
+        return JsonResponse({'users': users_list})
+
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
