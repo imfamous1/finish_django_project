@@ -20,7 +20,7 @@ def save_user(request):
 
             user, created = User.objects.update_or_create(
                 user_id=user_id,
-                default={
+                defaults={
                     'username': username,
                     'first_name': first_name,
                     'last_name': last_name
@@ -38,7 +38,7 @@ def save_user(request):
 
 def get_all_users(request):
     if request.method == 'GET':
-        users = User.object.all()
+        users = User.objects.all()
         users_list = []
 
         for user in users:

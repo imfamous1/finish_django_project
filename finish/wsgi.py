@@ -12,7 +12,7 @@ import sys
 
 from django.core.wsgi import get_wsgi_application
 
-path = 'home/zkokorin/finish_django_project'
+path = '/home/zkokorin/finish_django_project'
 if path not in sys.path:
     sys.path.append(path)
 
