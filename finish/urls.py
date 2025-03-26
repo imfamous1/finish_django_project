@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from finish.mini_app.views import save_user, get_all_users
+from mini_app.views import save_user, get_all_users
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from finish.mini_app.models import User
+from mini_app.models import User
 
 
 # Create your views here.
