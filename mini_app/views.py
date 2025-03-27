@@ -1,9 +1,7 @@
 import json
-
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
 from mini_app.models import User
 
 
@@ -15,8 +13,8 @@ def save_user(request):
             data = json.loads(request.body)
             user_id = data.get('user_id')
             username = data.get('username', '')
-            first_name = data.get('first_name')
-            last_name = data.get('last_name')
+            first_name = data.get('first_name', '')
+            last_name = data.get('last_name', '')
 
             user, created = User.objects.update_or_create(
                 user_id=user_id,
@@ -37,7 +35,6 @@ def save_user(request):
             return JsonResponse({'error': str(e)}, status=400)
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
-
 
 
 def get_all_users(request):
